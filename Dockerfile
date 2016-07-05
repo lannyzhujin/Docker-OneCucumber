@@ -14,8 +14,8 @@ RUN mkdir -p /home/workspace/OneCucumber
 WORKDIR /home/workspace/OneCucumber
 
 # Install SSH server
-RUN yum -y update && \
-        yum -y install tar unzip openssh-server
+RUN apt-get -y update && \
+        apt-get -y install tar unzip openssh-server
 RUN mkdir /var/run/sshd
 RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
